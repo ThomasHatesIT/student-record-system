@@ -9,4 +9,12 @@ class Student extends Model
 {
     /** @use HasFactory<\Database\Factories\StudentFactory> */
     use HasFactory;
+
+    protected $table = 'students';
+
+    protected $fillable = ['name', 'age', 'gender','course_id', 'year_level'];
+
+    public function course (){
+        return $this->belongsTo(Course::class);
+    }
 }

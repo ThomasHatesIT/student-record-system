@@ -17,7 +17,9 @@ class CourseFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->word() . ' ' . $this->faker->word(), // Random course name, e.g., "Computer Science"
+            'description' => $this->faker->paragraph(), // Random course description
+        
         ];
     }
 }

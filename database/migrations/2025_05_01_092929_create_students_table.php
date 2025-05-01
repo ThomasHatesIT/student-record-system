@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Course;
+
 return new class extends Migration
 {
     /**
@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('age'); // Changed from string to integer for age
+            $table->integer('age');
             $table->string('gender');
-            $table->foreignId('course_id'); // Better foreign key definition
+            $table->foreignId('course_id')->constrained()->onDelete('cascade');
             $table->string('year_level');
             $table->timestamps();
         });

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // Course name (e.g., "Computer Science")
-            $table->text('description')->nullable(); // Detailed description, nullable
+            $table->string('name');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
