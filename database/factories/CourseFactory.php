@@ -16,10 +16,27 @@ class CourseFactory extends Factory
      */
     public function definition(): array
     {
+        $courseNames = [
+            'Computer Science',
+            'Information Technology',
+            'Business Administration',
+            'Mechanical Engineering',
+            'Civil Engineering',
+            'Electrical Engineering',
+            'Psychology',
+            'Nursing',
+            'Accounting',
+            'Marketing',
+            'Physics',
+            'Mathematics',
+            'Biology',
+            'Economics',
+            'Political Science',
+        ];
+
         return [
-            'name' => $this->faker->word() . ' ' . $this->faker->word(), // Random course name, e.g., "Computer Science"
-            'description' => $this->faker->paragraph(), // Random course description
-        
+            'name' => $this->faker->randomElement($courseNames),
+            'description' => $this->faker->paragraph(),
         ];
     }
 }
