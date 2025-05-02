@@ -35,6 +35,15 @@ Route::get('/',function (Request $request) {
         'courses' =>    $courses
     ]);
 });
+Route::get('/students/create', function() {
+    $courses = Course::all(); // or however you want to fetch courses
+    return view('students.create', [
+        'courses' => $courses
+    ]);
+});
+
+
+
 
 route::get('/students/{id}', function($id){
     $student = Student::with('course')->findorFail($id);
@@ -43,3 +52,27 @@ route::get('/students/{id}', function($id){
             'student' =>  $student
     ]);
 });
+
+Route::post('/', function() {
+        
+    request()->validate([
+        'name' => ['required', 'min:3'],
+        'age' => ['required', 'min:1'],
+        'gender' => ['required'],
+        'course_id' => ['required', 'exists:courses,id'],
+        'year_level' => ['required']
+    ]);
+    
+    Student::create([
+        'name' => request('name'),
+        'age' => request('age'),
+        'gender' => request('gender'),
+        'course_id' => request('course_id'),
+        'year_level' => request('year_level')
+    ]);
+
+    return redirect('/');
+});
+
+
+
