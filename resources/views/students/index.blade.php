@@ -125,7 +125,7 @@
                                         Edit
                                     </span>
                                 </a>
-                                <form action="" method="POST" class="inline-block" onsubmit="return confirm('Are you sure you want to delete this student?');">
+                                <form action="/students/{{ $student->id }}" method="POST" class="inline-block" onsubmit="return confirm('Are you sure you want to delete this student?');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="inline-flex items-center bg-red-50 text-red-700 px-2.5 py-1 rounded-md text-sm font-medium hover:bg-red-100">
