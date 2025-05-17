@@ -13,8 +13,8 @@ class Student extends Model
     protected $table = 'students';
 
     protected $fillable = ['name', 'age', 'gender','course_id', 'year_level'];
-
     public function course (){
         return $this->belongsTo(Course::class);
     }
+ 
 }
