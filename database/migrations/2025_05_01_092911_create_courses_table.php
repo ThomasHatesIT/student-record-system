@@ -12,11 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('courses', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->text('description')->nullable();
-            $table->timestamps();
-        });
+    $table->id();
+    
+    // Optional: only if you're associating a course to a user (like the creator/admin)
+    $table->foreignIdFor(\App\Models\User::class)->constrained()->onDelete('cascade');
+
+    $table->string('name');
+    $table->text('description')->nullable();
+    $table->timestamps();
+});
+
     }
 
     /**

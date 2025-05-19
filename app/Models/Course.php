@@ -18,4 +18,8 @@ class Course extends Model
     public function student (){
         return $this->HasMany(Student::class);
     }
+      public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

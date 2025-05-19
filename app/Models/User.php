@@ -34,6 +34,18 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+     // A user can be a student
+    public function student()
+    {
+        return $this->hasOne(Student::class);
+    }
+
+    // A user can be a professor who owns many courses (optional)
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
+    
     /**
      * Get the attributes that should be cast.
      *
